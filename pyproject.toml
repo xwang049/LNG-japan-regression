@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "japan-snd-regression"
+version = "0.1.0"
+description = "Streamlit app for Japan S&D multivariate regression with OLS (HC1/HAC), VIF, Ridge/Lasso, and time-based split."
+requires-python = ">=3.9"
+authors = [{ name = "Kpler Analytics" }]
+
+dependencies = [
+  "streamlit>=1.30",
+  "pandas>=2.0",
+  "numpy>=1.23",
+  "statsmodels>=0.14",
+  "plotly>=5.18",
+  "scikit-learn>=1.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4",
+  "black>=24.1",
+]
+
+# 关键：告诉 hatch 你的包放在 src/japan_snd_regression 下
+[tool.hatch.build.targets.wheel]
+packages = ["src/japan_snd_regression"]
